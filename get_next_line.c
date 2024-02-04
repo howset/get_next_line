@@ -7,7 +7,7 @@ char	*get_next_line(int fd)
 {
 	static char	*stock;
 	char		*temp;
-	char		*line_from_read;
+	char		*line_fr_read;
 	char		*extracted;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
@@ -21,8 +21,8 @@ char	*get_next_line(int fd)
 	extracted = extract_line(&stock);
 	if (extracted)
 		return (extracted);
-	line_from_read = read_fd(fd);
-	if (!line_from_read)
+	line_fr_read = read_fd(fd);
+	if (!line_fr_read)
 	{
 		extracted = ft_strdup(stock);
 		free(stock);
@@ -32,8 +32,8 @@ char	*get_next_line(int fd)
 		free(extracted);
 		return (NULL);
 	}
-	temp = ft_strjoin(stock, line_from_read);
-	free(line_from_read);
+	temp = ft_strjoin(stock, line_fr_read);
+	free(line_fr_read);
 	free(stock);
 	stock = temp;
 	return (get_next_line(fd));
@@ -41,20 +41,20 @@ char	*get_next_line(int fd)
 
 char	*read_fd(int fd)
 {
-	char	*line;
+	char	*line_fr_read;
 	int		bytes;
 
-	line = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!line)
+	line_fr_read = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!line_fr_read)
 		return (NULL);
-	bytes = read(fd, line, BUFFER_SIZE);
+	bytes = read(fd, line_fr_read, BUFFER_SIZE);
 	if (bytes <= 0)
 	{
-		free(line);
+		free(line_fr_read);
 		return (NULL);
 	}
-	line[bytes] = '\0';
-	return (line);
+	line_fr_read[bytes] = '\0';
+	return (line_fr_read);
 }
 
 char	*extract_line(char **stock)
