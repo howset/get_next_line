@@ -130,7 +130,7 @@ char	*extract_line(char **stock)
 	return (NULL);
 }
 
-/*
+
 #include <stdio.h>
 
 int main(void)
@@ -141,8 +141,8 @@ int main(void)
 
 	lines = 1;
 	fd = open("lorem2.txt", O_RDONLY);
-	while(line == get_next_line(fd))
+	while((line = get_next_line(fd)))
 		printf("%d ->%s\n", lines++, line);
 	close(fd);
 }
-*/
+
