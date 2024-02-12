@@ -1,68 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:05 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/12 17:14:30 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:37:26 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*real_gnl_func(char **stock, int fd);
 char	*read_fd(int fd);
 char	*extract_line(char **stock);
 
-/*
 char	*get_next_line(int fd)
 {
-	static char	*stock;
-	char		*temp;
-	char		*line_fr_read;
-	char		*extracted;
+	static char	*stock[1024];
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
-		return (NULL);
-	if (!stock)
-		stock = ft_strdup("");
-	extracted = extract_line(&stock);
-	if (extracted)
-		return (extracted);
-	line_fr_read = read_fd(fd);
-	if (!line_fr_read)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0 || fd >= 1024)
 	{
-		extracted = ft_strdup(stock);
-		free(stock);
-		stock = NULL;
-		if (*extracted)
-			return (extracted);
-		free(extracted);
+		free(stock[fd]);
+		stock[fd] = NULL;
 		return (NULL);
 	}
-	temp = ft_strjoin(stock, line_fr_read);
-	free(line_fr_read);
-	free(stock);
-	stock = temp;
-	return (get_next_line(fd));
-}
-*/
-
-char	*get_next_line(int fd)
-{
-	static char	*stock;
-
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
-	{
-		free(stock);
-		stock = NULL;
-		return (NULL);
-	}
-	if (!stock)
-		stock = ft_strdup("");
-	return (real_gnl_func(&stock, fd));
+	if (!stock[fd])
+		stock[fd] = ft_strdup("");
+	return (real_gnl_func(&stock[fd], fd));
 }
 
 char	*real_gnl_func(char **stock, int fd)
