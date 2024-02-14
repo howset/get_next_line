@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:05 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/12 16:37:26 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:46:31 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*extract_line(char **stock);
 
 char	*get_next_line(int fd)
 {
-	static char	*stock[1024];
+	static char	*stock[1025];
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0 || fd >= 1024)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0 || fd >= 1025)
 	{
 		free(stock[fd]);
 		stock[fd] = NULL;
@@ -33,9 +33,9 @@ char	*get_next_line(int fd)
 
 char	*real_gnl_func(char **stock, int fd)
 {
-	char		*temp;
-	char		*line_fr_read;
-	char		*extracted;
+	char	*temp;
+	char	*line_fr_read;
+	char	*extracted;
 
 	extracted = extract_line(stock);
 	if (extracted)

@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:24 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/12 16:08:42 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:54:26 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <stdlib.h> // free
-# include <unistd.h> // read
-# include <fcntl.h> // O_RDONLY
+#include <stdlib.h> // free
+#include <unistd.h> // read
+#include <fcntl.h> // O_RDONLY
 
 char	*get_next_line(int fd);
 char	*real_gnl_func(char **stock, int fd);

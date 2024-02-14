@@ -6,20 +6,20 @@
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:24 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/12 16:27:03 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:00:20 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
 
-# include <stdlib.h> // free
-# include <unistd.h> // read
-# include <fcntl.h> // O_RDONLY
+#include <stdlib.h> // free
+#include <unistd.h> // read
+#include <fcntl.h> // O_RDONLY
 
 char	*get_next_line(int fd);
 char	*real_gnl_func(char **stock, int fd);

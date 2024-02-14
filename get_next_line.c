@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:05 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/12 17:14:30 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:22:07 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*get_next_line(int fd)
 {
 	static char	*stock;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free(stock);
 		stock = NULL;
@@ -67,9 +67,9 @@ char	*get_next_line(int fd)
 
 char	*real_gnl_func(char **stock, int fd)
 {
-	char		*temp;
-	char		*line_fr_read;
-	char		*extracted;
+	char	*temp;
+	char	*line_fr_read;
+	char	*extracted;
 
 	extracted = extract_line(stock);
 	if (extracted)
@@ -130,7 +130,7 @@ char	*extract_line(char **stock)
 	return (NULL);
 }
 
-
+/*
 #include <stdio.h>
 
 int main(void)
@@ -140,9 +140,9 @@ int main(void)
 	int	lines;
 
 	lines = 1;
-	fd = open("lorem2.txt", O_RDONLY);
+	fd = open("lorem1.txt", O_RDONLY);
 	while((line = get_next_line(fd)))
 		printf("%d ->%s\n", lines++, line);
 	close(fd);
 }
-
+*/
