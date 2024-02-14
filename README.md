@@ -1,7 +1,7 @@
 # get_next_line
 
 ## Content
->1. get_next_line.c
+1. get_next_line.c
 >>	1. char *get_next_line(int fd);
 >>	2.	char *real_gnl_func(char **stock, int fd);
 >>	3.	char *read_fd(int fd);
