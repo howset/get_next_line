@@ -2,10 +2,10 @@
 
 ## Content
 >1. get_next_line.c
->	1. char *get_next_line(int fd);
->	2.	char *real_gnl_func(char **stock, int fd);
->	3.	char *read_fd(int fd);
->	4.	char *extract_line(char **stock);
+>>	1. char *get_next_line(int fd);
+>>	2.	char *real_gnl_func(char **stock, int fd);
+>>	3.	char *read_fd(int fd);
+>>	4.	char *extract_line(char **stock);
 2. get_next_line_utils.c
 	1. size_t ft_strlen(const char *str);
 	2. size_t ft_strlcpy(char *dst, const char *src, size_t size);
