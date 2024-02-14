@@ -17,9 +17,9 @@
 #  define BUFFER_SIZE 42
 # endif
 
-#include <stdlib.h> // free
-#include <unistd.h> // read
-#include <fcntl.h> // O_RDONLY
+# include <stdlib.h> // free
+# include <unistd.h> // read
+# include <fcntl.h> // O_RDONLY
 
 char	*get_next_line(int fd);
 char	*real_gnl_func(char **stock, int fd);
