@@ -18,7 +18,7 @@
 ## Flow
 - The ```get_next_line``` and ```real_gnl_func``` are actually the result of one function, just too long ,so separated into 2 funcs. In this case, the ```get_next_line``` function serves:
 	1. as a control for invalid inputs,
-	2. to declare and contain the (only) static variable, **stock**,
+	2. to declare and contain the (only) static variable, <kbd>stock</kbd>
 	3. to initialize the **stock** as empty in the very first call (before any line is read). The ```get_next_line``` function takes the **fd** as input and calls the ```real_gnl_func``` as the return by passing the **fd** and the initialized **stock**.
 - The ```real_gnl_func``` starts by reading the **fd** (```read_fd```) and stores the result in the var **line_fr_read**.
 	- The beginning part of the function (**extracted**) is not relevant in the first pass of the text file, because there is nothing yet to do. (Would contain some **remains** on subsequent runs).
