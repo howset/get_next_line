@@ -2,18 +2,18 @@
 
 ## Content
 1. get_next_line.c
->>	1. char *get_next_line(int fd);
->>	2.	char *real_gnl_func(char **stock, int fd);
->>	3.	char *read_fd(int fd);
->>	4.	char *extract_line(char **stock);
+>	1. char *get_next_line(int fd);
+>	2.	char *real_gnl_func(char **stock, int fd);
+>	3.	char *read_fd(int fd);
+>	4.	char *extract_line(char **stock);
 2. get_next_line_utils.c
-	1. size_t ft_strlen(const char *str);
-	2. size_t ft_strlcpy(char *dst, const char *src, size_t size);
-	3. char *ft_strdup(const char *s);
-	4. char *ft_substr(char const *s, unsigned int start, size_t len);
-	5. char *ft_strjoin(char const *s1, char const *s2);
+>	1. size_t ft_strlen(const char *str);
+>	2. size_t ft_strlcpy(char *dst, const char *src, size_t size);
+>	3. char *ft_strdup(const char *s);
+>	4. char *ft_substr(char const *s, unsigned int start, size_t len);
+>	5. char *ft_strjoin(char const *s1, char const *s2);
 3. get_next_line.h
-	1. just declare default BUFFER_SIZE
+>	1. just declare default BUFFER_SIZE
 
 ## Flow
 - The ```get_next_line``` and ```real_gnl_func``` are actually the result of one function, just too long ,so separated into 2 funcs. In this case, the ```get_next_line``` function serves:
