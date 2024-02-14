@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
 
-#include <stdlib.h> // free
-#include <unistd.h> // read
-#include <fcntl.h> // O_RDONLY
+# include <stdlib.h> // free
+# include <unistd.h> // read
+# include <fcntl.h> // O_RDONLY
 
 char	*get_next_line(int fd);
 char	*real_gnl_func(char **stock, int fd);
