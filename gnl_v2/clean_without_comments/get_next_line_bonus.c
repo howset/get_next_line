@@ -21,17 +21,11 @@ char	*get_next_line(int fd)
 	char		*extracted;
 	static char	*stock[1024] = {NULL};
 	char		*remains;
-	int			i;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 	{
-		i = 0;
-		while (i < 1024)
-		{
-			if (stock[i] != NULL)
-				free(stock[i]);
-			i++;
-		}
+		if (stock[fd] != NULL)
+			free(stock[fd]);
 		return (NULL);
 	}
 	stock[fd] = read_line(fd, stock[fd]);
