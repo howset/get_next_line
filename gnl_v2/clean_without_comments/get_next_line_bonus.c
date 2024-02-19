@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:05 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/19 19:37:46 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:02:53 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,22 @@ char	*read_line(int fd, char *stock);
 char	*extract_line(char *stock);
 char	*clean_up(char *stock);
 
-char	*get_next_line(int fd) // to accomodate different fd
+char	*get_next_line(int fd)
 {
 	char		*extracted;
-	static char	*stock[1024] = {NULL}; // declare stock as an array of 1024 fds and initialize. size of array is ulimit -n
+	static char	*stock[1024] = {NULL};
 	char		*remains;
+	int			i;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024) // control sequence for invalid fd (must be 0 < fd < 1024) & BUFFER_SIZE to return NULL
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		if (stock[fd] != NULL)
-			free(stock[fd]);
+		i = 0;
+		while (i < 1024)
+		{
+			if (stock[i] != NULL)
+				free(stock[i]);
+			i++;
+		}
 		return (NULL);
 	}
 	stock[fd] = read_line(fd, stock[fd]);
@@ -130,18 +136,16 @@ int main(void)
     int fd2;
     char *line;
     int	lines;
-	char file1[] = "lorem1.txt";
-	char file2[] = "lorem2.txt";
 
-    fd1 = open(file1, O_RDONLY);
-    fd2 = open(file2, O_RDONLY);
+    fd1 = open("lorem1.txt", O_RDONLY);
+    fd2 = open("lorem2.txt", O_RDONLY);
     lines = 1;
-    printf("\n >> Reading from %s:\n", file1);
+    printf("Reading from %s:\n", "lorem1.txt");
     while ((line = get_next_line(fd1)))
         printf("%d ->%s\n", lines++, line);
     free(line);
     lines = 1;
-    printf("\n >> Reading from %s:\n", file2);
+    printf("Reading from %s:\n", "lorem2.txt");
     while ((line = get_next_line(fd2)))
         printf("%d ->%s\n", lines++, line);
     free(line);

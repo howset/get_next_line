@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:15 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/19 19:23:59 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:17:30 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /* null_malloc -> just malloc and initialize the var with \0 */
 char	*null_malloc(size_t nmemb, size_t size)
@@ -60,7 +60,7 @@ char	*freebuf_join(char *s1, char *s2)
 		j++;
 	}
 	res[i + j] = '\0';
-	free(s1); // just necessary to avoid leaks
+	free(s1);
 	return (res);
 }
 

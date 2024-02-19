@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:15 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/19 19:23:59 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:16:39 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*freebuf_join(char *s1, char *s2)
 		j++;
 	}
 	res[i + j] = '\0';
-	free(s1); // just necessary to avoid leaks
+	free(s1);
 	return (res);
 }
 

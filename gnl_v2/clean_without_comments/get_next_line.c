@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:47:05 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/02/19 19:37:46 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:50:21 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*read_line(int fd, char *stock);
 char	*extract_line(char *stock);
 char	*clean_up(char *stock);
 
-char	*get_next_line(int fd) // to accomodate different fd
+char	*get_next_line(int fd)
 {
 	char		*extracted;
-	static char	*stock[1024] = {NULL}; // declare stock as an array of 1024 fds and initialize. size of array is ulimit -n
+	static char	*stock = NULL;
 	char		*remains;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024) // control sequence for invalid fd (must be 0 < fd < 1024) & BUFFER_SIZE to return NULL
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		if (stock[fd] != NULL)
-			free(stock[fd]);
+		if (stock != NULL)
+			free(stock);
 		return (NULL);
 	}
-	stock[fd] = read_line(fd, stock[fd]);
-	if (!stock[fd])
+	stock = read_line(fd, stock);
+	if (!stock)
 		return (NULL);
-	extracted = extract_line(stock[fd]);
-	remains = clean_up(stock[fd]);
-	stock[fd] = remains;
+	extracted = extract_line(stock);
+	remains = clean_up(stock);
+	stock = remains;
 	return (extracted);
 }
 
@@ -126,27 +126,14 @@ char	*clean_up(char *stock)
 
 int main(void)
 {
-    int fd1;
-    int fd2;
-    char *line;
-    int	lines;
-	char file1[] = "lorem1.txt";
-	char file2[] = "lorem2.txt";
+	int	fd;
+	char	*line = NULL;
+	int	lines;
 
-    fd1 = open(file1, O_RDONLY);
-    fd2 = open(file2, O_RDONLY);
-    lines = 1;
-    printf("\n >> Reading from %s:\n", file1);
-    while ((line = get_next_line(fd1)))
-        printf("%d ->%s\n", lines++, line);
-    free(line);
-    lines = 1;
-    printf("\n >> Reading from %s:\n", file2);
-    while ((line = get_next_line(fd2)))
-        printf("%d ->%s\n", lines++, line);
-    free(line);
-    close(fd1);
-    close(fd2);
-    return (0);
+	lines = 1;
+	fd = open("lorem1.txt", O_RDONLY);
+	while((line = get_next_line(fd)))
+		printf("%d ->%s\n", lines++, line);
+	close(fd);
 }
 */
