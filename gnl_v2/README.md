@@ -27,3 +27,10 @@
 ## Notes
 - In ```read```, the pointer to the buffer remains where it last completed its read, because it is associated with the file descriptor of that file.
 - Bonus ```ulimit -n``` - soft limit fd
+- Another way would be by defining it in the header file by adding:
+``` c
+# ifndef FD_SIZE
+#  define FD_SIZE whatevernumber
+# endif
+```
+- Then adjust during compilation via the '-D FD_SIZE_=n' flag.
