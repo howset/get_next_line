@@ -43,6 +43,7 @@ cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line.c get_next_line_util
 cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c get_next_line_bonus.h && valgrind --tool=memcheck -q --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./a.out | cat -e
 ```
 ## Diagram
+```
                                                                                          ┌─────────┐
                                                                                      ┌──►│ft_strchr│
                                                                                      │   └─────────┘
@@ -72,3 +73,4 @@ cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_lin
 │ return(extracted)              │       │ empty stock                │
 └────────────────────────────────┘       │ set stock as remains       │
                                          └────────────────────────────┘
+```
