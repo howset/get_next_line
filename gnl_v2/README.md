@@ -33,7 +33,12 @@
 #  define FD_SIZE whatevernumber
 # endif
 ```
-- Then adjust during compilation via the '-D FD_SIZE_=n' flag.
+- Then adjust during compilation via the '-D FD_SIZE=n' flag.
+- Adjust BUFFER_SIZE also with -D flag like above.
+- To allow the program to read from stdin, pipe the output of cat to the program.
+```
+$ cat whatevertestfile.txt | ./a.out 
+```
 
 ## Valgrind (to test)
 ```
