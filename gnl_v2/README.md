@@ -42,3 +42,33 @@ cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line.c get_next_line_util
 ```
 cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c get_next_line_bonus.h && valgrind --tool=memcheck -q --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./a.out | cat -e
 ```
+## Diagram
+                                                                                         ┌─────────┐
+                                                                                     ┌──►│ft_strchr│
+                                                                                     │   └─────────┘
+                                                                                     │
+                                         ┌───────────────────────────────────┐       │
+                                   ┌────►│read_line                          │       │
+                                   │     │ malloc line_fr_read ├─────────────┼──┐    │
+                                   │     │ loop along stock for '\n' ├───────┼──┼────┘
+                                   │     │  read & put to buffer line_fr_read│  │        ┌──────────────┐     ┌─────────┐
+                                   │     │  put line_fr_read to stock by join├──┼───────►│freestock_join├────►│ft_strlen│
+                                   │     │ free line_fr_read                 │  │        │ join         │     └─────────┘
+                                   │     │ return stock                      │  │        │ free stock   │
+                                   │     └───────────────────────────────────┘  │        └──────────────┘
+                                   │                                            │
+                                   │     ┌──────────────────────────┐           │        ┌────────────────┐
+                                   │ ┌──►│extract_line              │           │      ┌►│null_malloc     │
+                                   │ │   │ malloc extracted ├───────┼───────────┴──────┤ │ malloc         │
+                                   │ │   │ traverse stock up to '\n'│                  │ │ set[0] to '\0' │
+                                   │ │   │ copy it to extracted     │                  │ └────────────────┘
+                                   │ │   │ return extracted         │                  │
+┌────────────────────────────────┐ │ │   └──────────────────────────┘                  │
+│get_next_line                   │ │ │                                                 │
+│ starting seq                   │ │ │   ┌────────────────────────────┐                │
+│ stock = read_line(fd, stock)   ├─┘ │ ┌►│clean_up                    │                │
+│ extracted = extract_line(stock)├───┘ │ │ malloc remains ├───────────┼────────────────┘
+│ stock = clean_up(stock)        ├─────┘ │ remains = stock - extracted│
+│ return(extracted)              │       │ empty stock                │
+└────────────────────────────────┘       │ set stock as remains       │
+                                         └────────────────────────────┘
