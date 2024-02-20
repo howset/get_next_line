@@ -34,3 +34,11 @@
 # endif
 ```
 - Then adjust during compilation via the '-D FD_SIZE_=n' flag.
+
+## Valgrind (to test)
+```
+cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c get_next_line.h && valgrind --tool=memcheck -q --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./a.out | cat -e
+```
+```
+cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c get_next_line_bonus.h && valgrind --tool=memcheck -q --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./a.out | cat -e
+```
