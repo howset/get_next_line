@@ -39,6 +39,7 @@
 ```
 $ cat whatevertestfile.txt | ./a.out 
 ```
+- Fails francinette --strict
 
 ## Valgrind (to test)
 ```
