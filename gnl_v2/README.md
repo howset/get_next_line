@@ -82,8 +82,8 @@ cc -Wall -Wextra -Werror -g -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_lin
 ```
 
 ## Flow of filling stock with line_fr_read to return extracted
-![read_line](./pres/gnl_flow-1.png "read_line")
-![read_line](./pres/gnl_flow-2.png "read_line")
-![read_line](./pres/gnl_flow-3.png "read_line")
-![read_line](./pres/gnl_flow-4.png "read_line")
-![read_line](./pres/gnl_flow-5.png "extract_line and clean_up")
+![read_line](./pres/get_next_line1.svg "read_line")
+![read_line](./pres/get_next_line2.svg "read_line")
+![read_line](./pres/get_next_line3.svg "read_line")
+![read_line](./pres/get_next_line4.svg "read_line")
+![read_line](./pres/get_next_line5.svg "extract_line and clean_up")
