@@ -130,8 +130,8 @@ int main(void)
     int fd2;
     char *line;
     int	lines;
-	char file1[] = "lorem1.txt";
-	char file2[] = "lorem2.txt";
+	char file1[] = "./txts/lorem1.txt";
+	char file2[] = "./txts/lorem2.txt";
 
     fd1 = open(file1, O_RDONLY);
     fd2 = open(file2, O_RDONLY);

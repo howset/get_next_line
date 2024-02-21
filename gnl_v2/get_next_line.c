@@ -131,7 +131,7 @@ int main(void)
 	int	lines;
 
 	lines = 1;
-	fd = open("lorem1.txt", O_RDONLY);
+	fd = open("./txts/lorem1.txt", O_RDONLY);
 	while((line = get_next_line(fd)))
 		printf("%d ->%s\n", lines++, line);
 	close(fd);
