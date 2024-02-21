@@ -29,11 +29,11 @@
 - Bonus ```ulimit -n``` - soft limit fd
 - Another way would be by defining it in the header file by adding:
 ``` c
-# ifndef FD_SIZE
-#  define FD_SIZE whatevernumber
+# ifndef FD_MAX
+#  define FD_MAX whatevernumber
 # endif
 ```
-- Then adjust during compilation via the '-D FD_SIZE=n' flag.
+- Then adjust during compilation via the '-D FD_MAX=n' flag.
 - Adjust BUFFER_SIZE also with -D flag like above.
 - To let the program to read from stdin, pipe the output of cat/echo to the program. (fd in main has to be set to 0!)
 ```
