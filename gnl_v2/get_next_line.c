@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0) // just a control sequence for invalid fd & BUFFER_SIZE to return NULL
 	{
-		if (stock != NULL) // stock is declared and initialized as NULL, if somehow it is not, then free and return NULL
+		if (stock != NULL) // stock was declared and initialized as NULL, if somehow it is not, then free and return NULL
 			free(stock);
 		return (NULL);
 	}
