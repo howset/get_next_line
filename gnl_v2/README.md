@@ -16,7 +16,7 @@
 
 ## Flow
 - The ```get_next_line``` function first starts with a control sequence to check either invalid <kbd>BUFFER_SIZE</kbd> or <kbd>fd</kbd> (if so, returns NULL, and make sure <kbd>stock</kbd> is freed).
-- Then the ```read_line``` function is called to populate <kbd>stock</kbd> (with whatever is leftover in itself from previous run) and the result of a ```read``` function that is called in this part. A variable <kbd>line_fr_read</kbd> is allocated (with ```null_malloc```) as the buffer to which the ```read``` function puts its result beside the number of bytes sucessfully read (to <kbd>bytes</kbd>). 
+- Then the ```read_line``` function is called to populate <kbd>stock</kbd> (including whatever is leftover in itself from previous run) and the result of a ```read``` function that is called in this part. A variable <kbd>line_fr_read</kbd> is allocated (with ```null_malloc```) as the buffer to which the ```read``` function puts its result beside the number of bytes sucessfully read (to <kbd>bytes</kbd>). 
 - The ```read``` function is called only while there is no <kbd>\n</kbd> character in the <kbd>stock</kbd>. The resulting <kbd>line_fr_read</kbd> is then terminated by a <kbd>\0</kbd>.
 - Finally, <kbd>stock</kbd> is then filled by joining <kbd>line_fr_read</kbd> and itself (still empty in the first run). Then the ```read``` buffer (<kbd>line_fr_read</kbd>) is freed.
 - Then the ```extract_line``` function is called on the variable <kbd>stock</kbd>. This function traverses <kbd>stock</kbd> until a <kbd>\n</kbd> is found. Everything is then stored in the variable <kbd>extracted</kbd> that was allocated accordingly by ```null_malloc```, and then terminated by a <kbd>\0</kbd>. 
