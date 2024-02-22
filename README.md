@@ -6,3 +6,50 @@ Version 1 has recursive function calls. Chosen solely because the author provide
 
 Therefore I tried to once again scour the internet for codes that are more understandable for me. Ended up with this version (2) that runs in a step-by-step manner. I managed to reproduce it with my own writing and helper functions. Some minute details were smoothed out in a trial and error. Seems to work well enough although didn't pass `francinette --strict`. My first evaluation went a bit rough because I was not prepared enough to explain the structure and flow of the function(s), although I have prepared a diagram of the organization of the functions. So for the next evaluations I prepared a couple of slides to explain the general idea of the project and the functions. This ended up being useless because the next evaluators were already so far more advanced than me. The diagram & slides are put here for documentation purposes.
 There was no significant problems in going for the bonus. An issue was however raised during one of the evaluations in regards to how the instruction has to interpreted. I was not aware of this beforehand because the code passed the normal francinette tests, and I didn't even bother to make other checks. Still passed the machine evaluation in the end.
+
+```
+get_next_line
+ ┣ gnl_v1
+ ┃ ┣ HP_verylong.txt
+ ┃ ┣ README.md
+ ┃ ┣ empty.txt
+ ┃ ┣ get_next_line.c
+ ┃ ┣ get_next_line.h
+ ┃ ┣ get_next_line_bonus.c
+ ┃ ┣ get_next_line_bonus.h
+ ┃ ┣ get_next_line_utils.c
+ ┃ ┣ get_next_line_utils_bonus.c
+ ┃ ┣ lorem1.txt
+ ┃ ┣ lorem2.txt
+ ┃ ┣ main.c
+ ┃ ┗ main_bonus.c
+ ┣ gnl_v2
+ ┃ ┣ clean_without_comments
+ ┃ ┃ ┣ get_next_line.c
+ ┃ ┃ ┣ get_next_line.h
+ ┃ ┃ ┣ get_next_line_bonus.c
+ ┃ ┃ ┣ get_next_line_bonus.h
+ ┃ ┃ ┣ get_next_line_utils.c
+ ┃ ┃ ┗ get_next_line_utils_bonus.c
+ ┃ ┣ pres
+ ┃ ┃ ┣ get_next_line1.svg
+ ┃ ┃ ┣ get_next_line2.svg
+ ┃ ┃ ┣ get_next_line3.svg
+ ┃ ┃ ┣ get_next_line4.svg
+ ┃ ┃ ┗ get_next_line5.svg
+ ┃ ┣ txts
+ ┃ ┃ ┣ HP_verylong.txt
+ ┃ ┃ ┣ empty.txt
+ ┃ ┃ ┣ lorem1.txt
+ ┃ ┃ ┗ lorem2.txt
+ ┃ ┣ README.md
+ ┃ ┣ get_next_line.c
+ ┃ ┣ get_next_line.h
+ ┃ ┣ get_next_line_bonus.c
+ ┃ ┣ get_next_line_bonus.h
+ ┃ ┣ get_next_line_utils.c
+ ┃ ┣ get_next_line_utils_bonus.c
+ ┃ ┣ main.c
+ ┃ ┗ main_bonus.c
+ ┗ README.md
+```
