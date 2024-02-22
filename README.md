@@ -10,19 +10,11 @@ There were no significant problems in going for the bonus. An issue was however 
 ```
 get_next_line
  ┣ gnl_v1
- ┃ ┣ HP_verylong.txt
  ┃ ┣ README.md
- ┃ ┣ empty.txt
  ┃ ┣ get_next_line.c
  ┃ ┣ get_next_line.h
- ┃ ┣ get_next_line_bonus.c
- ┃ ┣ get_next_line_bonus.h
  ┃ ┣ get_next_line_utils.c
- ┃ ┣ get_next_line_utils_bonus.c
- ┃ ┣ lorem1.txt
- ┃ ┣ lorem2.txt
- ┃ ┣ main.c
- ┃ ┗ main_bonus.c
+ ┃ ┗ main.c
  ┣ gnl_v2
  ┃ ┣ clean_without_comments
  ┃ ┃ ┣ get_next_line.c
