@@ -1,6 +1,6 @@
 # get_next_line
 
-This project was a difficult one for me. Spend too much time trying to come up with something by myself which resulted in nothing noteworthy. Something about how to make it work just didn't click in my head. So I ended up scouring the net for inspiration. 
+This project was a difficult one for me. Spend too much time trying to come up with something by myself which resulted in nothing noteworthy. Something about how to make it work just didn't click in my head. So I ended up scouring the net for "inspiration". 
 
 Version 1 has recursive function calls. Chosen solely because the author provided a very detailed comments on **each** line of the code. However due to the sophistication of the code, I was very hesitant to even try to reproduce it in my own way, even though it helped **a lot** in understanding the project and how the function is intended to work.
 
